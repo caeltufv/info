@@ -1,670 +1,1157 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FAQ</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="996d4b32-2c6a-4c66-a7cc-8936292e25c1" class="page sans"><header><h1 class="page-title">FAQ</h1></header><div class="page-body"><p id="5f74cf91-01d7-468a-a7e2-f9e7e9560ec3" class="">
-</p><ul id="0c0f1f83-b18f-408f-870f-ee2a89dd7691" class="toggle"><li><details open=""><summary>PERÍODO E CALENDÁRIO</summary><ul id="2f161587-dd3f-40cc-ba29-2b27f52f094a" class="toggle"><li><details open=""><summary>Quando começa o período? Quando acaba? Quando são as provas finais? Até quando saem as notas das provas finais? Até quando faço plano de estudos?</summary><ul id="0f395975-79c3-4431-abe3-5779f15012df" class="bulleted-list"><li style="list-style-type:disc">R.: Veja no <a href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a> do ano desejado,  na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>.</li></ul></details></li></ul><ul id="c6b2c6e2-588b-43f2-8c03-4c322d745bac" class="toggle"><li><details open=""><summary>Quais matérias vai ter e quem vai dar? Como isso funciona?</summary><ul id="2124618a-45a6-4465-a927-72cdd6f34fe2" class="bulleted-list"><li style="list-style-type:disc">R.: Em uma reunião do Colegiado de cada Departamento da UFV, antes do período começar, acontece a divisão dos encargos de ensino que os professores vão ministrar no período subsequente. Por isso, é importante a participação de um membro representante discente nas instâncias da UFV. Após atualizado o oferecimento de disciplinas para o próximo período, visualize na seção de <a href="https://www.dti.ufv.br/horario/hor.asp">Horários de Aulas</a>, na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>.</li></ul></details></li></ul><ul id="8d0f13cd-f6b1-4d21-a036-4f6af93ab656" class="toggle"><li><details open=""><summary>Onde encontro horários de matérias?</summary><ul id="46b9ba8e-bfb4-4e11-a1c3-531b96c5fb73" class="bulleted-list"><li style="list-style-type:disc">R.: Na seção de <a href="https://www.dti.ufv.br/horario/hor.asp">Horários de Aulas</a>, na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>.</li></ul></details></li></ul><ul id="7e27986f-91af-4a38-b181-a9f81a9069b2" class="toggle"><li><details open=""><summary>Onde encontro datas de feriados?</summary><ul id="2c763fef-4bd4-4e8e-9c69-50cad0d7cbcb" class="bulleted-list"><li style="list-style-type:disc">R.: No <a href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a> do ano desejado,  na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>.</li></ul></details></li></ul><ul id="c9b98724-5df4-4f1f-a767-74c9cb028afa" class="toggle"><li><details open=""><summary>Quando posso remover disciplinas do meu período? Como?</summary><ul id="27994028-1393-4b9f-ba53-7310cdcda3bd" class="bulleted-list"><li style="list-style-type:disc">R.: Verifique a data no <a href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a> do ano desejado,  na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>. Durante o período específico, </li></ul></details></li></ul><ul id="19e80190-44d6-4511-bec2-79e92f61c42a" class="toggle"><li><details open=""><summary>Posso atualizar meu plano de estudos?</summary><ul id="303fcdc6-d069-4d4f-a6a4-4384809e6e57" class="bulleted-list"><li style="list-style-type:disc">Estudantes com aprovação em <em>todas</em> as disciplinas até o <a href="http://www.catalogo.ufv.br/interno.php?ano=2022&amp;curso=EEL&amp;campus=vicosa&amp;complemento=*&amp;periodo=3">3º Período da atual grade de Engenharia Elétrica</a> podem atualizar seus próprios planos de estudos. Caso contrário, devem entrar em contato com os <a href="https://del.ufv.br/plano-de-estudos/">professores orientadores respectivos (referentes a seu ano de ingresso no curso)</a> para selecionar as disciplinas desejadas para o(s) próximo(s) período(s) e receber orientação. </li></ul></details></li></ul><ul id="85285aa8-814a-4f0b-a504-8f66aab4db20" class="toggle"><li><details open=""><summary>Como atualizar meu plano de estudos?</summary><ul id="42d8c3c3-0368-4127-ac5b-7ae2ae16f067" class="bulleted-list"><li style="list-style-type:disc">R.: Entre alguma data no final do periodo até após o final da semana de provas finais, aproximadamente, pode-se editar o plano de estudos (consultar no <a href="https://www.res.ufv.br/?page_id=273">CALENDÁRIO</a>) tendo cumprindo requisito de disciplinas.  Para isso, acesse o <a href="https://sapiens.dti.ufv.br/sapiens_redireciona/index.asp">SAPIENS</a>, vá na aba de Plano de Estudos, insira, mova ou remova disciplinas na grade curricular utilizando os códigos das disciplinas desejadas referente ao catálogo em que se está inscrito. Ao final, clique em “Criticar Plano de Estudos” e não se esqueça de salvar logo em seguida. Para verificar as alterações, retorne à página de Plano de Estudos e reveja se as alterações desejadas foram salvas.</li></ul></details></li></ul><ul id="2c993982-10c3-4d6c-bd4e-8934204c2a31" class="toggle"><li><details open=""><summary>Quando atualizar meu catálogo?</summary><ul id="514e05a5-678f-499a-ba2d-46b02e915206" class="bulleted-list"><li style="list-style-type:disc">R.: SEMPRE. O ideal é manter no catálogo mais recente para facilitar tanto sua formação e formatura quanto a proposição e oferecimento de disciplinas por parte do departamento.</li></ul></details></li></ul><ul id="d4482122-6c35-4fad-b605-b7af125d12dc" class="toggle"><li><details open=""><summary>Como colocar uma facultativa?</summary><ul id="1c1ec8ec-c4c4-4803-b534-08607487386a" class="bulleted-list"><li style="list-style-type:disc">R.: No <a href="https://sapiens.dti.ufv.br/sapiens_redireciona/index.asp">SAPIENS</a>, vá na aba de Plano de Estudos. No final da página, em vermelho, existe uma seção específica “Disciplinas Facultativas” onde podem ser inseridas disciplinas que não estão listadas como <a href="http://www.catalogo.ufv.br/interno.php?ano=2022&amp;curso=EEL&amp;campus=vicosa&amp;complemento=*&amp;periodo=0">OPT no CATÁLOGO da Engenharia Elétrica</a>.</li></ul></details></li></ul><ul id="7aecbde2-2efb-4d4e-ad47-745b27801088" class="bulleted-list"><li style="list-style-type:disc">Não se esqueça de se matricular!</li></ul><ul id="3801577f-eb7e-417e-88c6-36b53656c749" class="toggle"><li><details open=""><summary>Período para poder entrar com processo especial de:</summary><ul id="08344985-e73b-49eb-a012-6c38e8f5bb50" class="bulleted-list"><li style="list-style-type:disc">Mobilidade acadêmica? Cancelamento de disciplina? Exame de suficiência? Solicitação de colação de grau?<ul id="8e625f94-50b6-465f-9a35-b951db511752" class="bulleted-list"><li style="list-style-type:circle">R.: Veja no <a href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a> do ano desejado, na página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da UFV</a>.</li></ul></li></ul></details></li></ul></details></li></ul><ul id="d405475c-ee65-48f5-92af-fb7795ba8dbb" class="toggle"><li><details open=""><summary>PROCESSOS</summary><ul id="062d8662-250f-4607-a0db-a086891d2dd6" class="bulleted-list"><li style="list-style-type:disc">Coisas de desistência, tirar matérias, <ul id="250a201b-0b29-4f5f-9dc3-a319d91f97c2" class="bulleted-list"><li style="list-style-type:circle">R.: </li></ul></li></ul><ul id="9e038247-1c60-48bb-b385-160762e12eff" class="bulleted-list"><li style="list-style-type:disc">Como / posso pedir mudança de data de prova com professor?</li></ul><ul id="64c82f0c-0768-4cb1-a8dd-188d562ac8c0" class="bulleted-list"><li style="list-style-type:disc">Como funcionam processos administrativos para professores?</li></ul><ul id="7135232d-2521-4348-855a-9dd1fc035a2c" class="bulleted-list"><li style="list-style-type:disc">Onde / como encontrar processos no registro? Quais são os processos mais procurados (explicar como eles funcionam)?</li></ul><ul id="5a62a094-fb61-42fe-8bf3-6b00512c8379" class="bulleted-list"><li style="list-style-type:disc">Como quebrar co-requisito (é pelo sapiens agora)? Solicitação de alteração de pre- e co-requisito?</li></ul><ul id="579b45f5-0e72-4264-8aa8-6e88ea100e28" class="bulleted-list"><li style="list-style-type:disc">Como solicitar documentos?</li></ul><ul id="6074ed23-aaba-4e89-a373-fead9f56832b" class="bulleted-list"><li style="list-style-type:disc">Como remover uma disciplina?</li></ul><ul id="923148f4-8f6d-4d47-9e69-49bf5d1ab1e4" class="bulleted-list"><li style="list-style-type:disc">Como fazer / criticar plano de estudos?</li></ul><ul id="ad0d9bcd-e957-4527-bd2f-daac0c32be92" class="bulleted-list"><li style="list-style-type:disc">Como simular o horário do Sapiens?</li></ul></details></li></ul><ul id="738ff1da-248f-4e15-8354-84a8f6196289" class="toggle"><li><details open=""><summary>FORMAR</summary><ul id="4eb94ab8-a3be-4b5d-bc94-9c06146eed65" class="bulleted-list"><li style="list-style-type:disc">O que, de fato, preciso para me formar? Como formar?<ul id="4a8a7787-1463-4848-97db-fbf57f67a1b0" class="bulleted-list"><li style="list-style-type:circle">R.: O estudante está apto a colar grau quando cumprir todos os requisitos estabelecidos no Projeto Pedagógico do Curso (PPC). O PPC pode ser encontrado no site do DEL (<a href="https://del.ufv.br/">https://del.ufv.br/</a>). Em suma, o estudante deve cursar todas as disciplinas obrigatórias e a carga horária de optativas.</li></ul></li></ul><ul id="b9404c66-566d-4de5-a7a3-c1bfffca6857" class="bulleted-list"><li style="list-style-type:disc">Horas de obrigatórias, como funciona?</li></ul><ul id="ac0a7eb3-ed31-4fff-bf85-05d755995c83" class="bulleted-list"><li style="list-style-type:disc">Corte de optativas, como funciona, como cortar, o que precisa?<ul id="e82de1b0-3e52-4c78-945d-c1b997ca6832" class="bulleted-list"><li style="list-style-type:circle">Quantidade de optativas “do DEL”, como elas funcionam (onde está no regimento, o que está escrito)</li></ul><ul id="99c390fd-b403-4621-88fa-047ad1ef3142" class="bulleted-list"><li style="list-style-type:circle">Atividades Complementares</li></ul></li></ul><ul id="b7953513-883d-4692-a5e2-e37940021d14" class="bulleted-list"><li style="list-style-type:disc">Como funciona, o que precisa ou não registrar, o que conta como estágio, quando melhor fazer o estágio, diferenças entre estágio interno, externo, obrigatório e não, como e quando puxar a disciplina de estágio?</li></ul><ul id="f5e70a6c-c47f-42df-88e3-6021896544ba" class="bulleted-list"><li style="list-style-type:disc">Como funciona a curricularização da extensão? Quanto preciso fazer? O que conta? Como encontrar oportunidades?</li></ul><ul id="ab1c35b1-a90c-4312-a9c0-11503e1f70c2" class="bulleted-list"><li style="list-style-type:disc">Como funciona o botão de possível formando?</li></ul><ul id="9ecc1145-54cc-4406-801e-b82a20dacad7" class="bulleted-list"><li style="list-style-type:disc">O que preciso para colar grau? Quando colar grau?</li></ul><ul id="71343668-158b-41c9-8c00-e8be8e7d9eda" class="bulleted-list"><li style="list-style-type:disc">Como funciona a organização / comissão de formatura? Quando começa/acontece?</li></ul></details></li></ul><ul id="a20703d1-8419-4245-8be9-b3e51b7567f4" class="toggle"><li><details open=""><summary>CAELT</summary><ul id="fde38d3a-f3a6-4caa-8b49-e7be8d55742f" class="bulleted-list"><li style="list-style-type:disc">construir IT do drive (deixar documentado os documentos do drive)<ul id="12250d6f-e982-4c28-a52a-a1443be0bd68" class="bulleted-list"><li style="list-style-type:circle">guia do drive, senhas, estatuto, eltflix, formulários, informações, saeelt</li></ul><ul id="f68176a2-a867-465b-a67d-39ff436db800" class="bulleted-list"><li style="list-style-type:circle">contato com outros cas, das, etc (fis, mat)</li></ul></li></ul><ul id="3bf8721f-f6e1-426d-95c3-12f63c57b7d9" class="bulleted-list"><li style="list-style-type:disc">explicar como funciona caelt<ul id="53fbab03-30b5-45f3-94d6-b912b1294808" class="bulleted-list"><li style="list-style-type:circle">dicas para conversar com professores</li></ul><ul id="bcb55475-606d-44ae-9ecf-745d0e18c9ac" class="bulleted-list"><li style="list-style-type:circle">melhores práticas,</li></ul><ul id="fe6b6615-ffd3-4072-b1d1-dff3853f2f80" class="bulleted-list"><li style="list-style-type:circle">como funcionam departamentos, dicas de contatos</li></ul><ul id="82ae6828-7980-4bd6-80c8-874415184d5e" class="bulleted-list"><li style="list-style-type:circle">Como correr atrás de outros departamentos</li></ul><ul id="f9f1308d-536b-4535-bd6f-26ec76337010" class="bulleted-list"><li style="list-style-type:circle">como resolver problemas de disciplinas</li></ul></li></ul><ul id="c1d111cc-5571-4d88-baaf-5795c3b03999" class="bulleted-list"><li style="list-style-type:disc">Know-how administrativo<ul id="f9e9a52e-74b6-41cc-8aca-67a4cc3c05d1" class="bulleted-list"><li style="list-style-type:circle">Como fazer e quantidade de reuniões?</li></ul><ul id="40373aad-b0ed-43c4-a6c5-e2fb25042143" class="bulleted-list"><li style="list-style-type:circle">Quando é melhor pra marcar? (tentar manter para 1 obrigatória por mês + 1 extraordinária máxima)</li></ul><ul id="e10de0ce-24af-4121-acf4-6e51ef1bfe98" class="bulleted-list"><li style="list-style-type:circle">Definir projetos no início da gestão e manter acompanhamento</li></ul><ul id="a6bd9bbe-8487-4767-b33a-1ff3ea3c9011" class="bulleted-list"><li style="list-style-type:circle">Fazer pelo menos 2 assembleias gerais</li></ul><ul id="06521af2-61e4-4de3-8ab5-008e9dacc86e" class="bulleted-list"><li style="list-style-type:circle">Recomendação: questionário de feedback/ouvidoria uma vez por período</li></ul></li></ul><ul id="d1a5a378-f7b0-4acd-8cb8-54eea91146ee" class="bulleted-list"><li style="list-style-type:disc">Abstrair workflow e metodologias da Comunicação<ul id="34a9634e-a853-49ed-9ca1-9433c8f33b79" class="bulleted-list"><li style="list-style-type:circle">Definiu padrão / template dos posts e ID visual da gestão</li></ul><ul id="9e8494fc-6073-4597-8943-9a66884edb68" class="bulleted-list"><li style="list-style-type:circle">Sempre mostrar no grupo antes de postar, para feedback</li></ul><ul id="80150347-aeb9-4cb2-b586-8ab1fd160c93" class="bulleted-list"><li style="list-style-type:circle">Não é necessário reunir depois de definir os padrões</li></ul></li></ul></details></li></ul></div></article></body></html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>FAQ</title>
+	<style>
+		/* cspell:disable-file */
+		/* webkit printing magic: print all background colors */
+		html {
+			-webkit-print-color-adjust: exact;
+		}
+
+		* {
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		@media only screen {
+			body {
+				margin: 2em auto;
+				max-width: 900px;
+				color: rgb(55, 53, 47);
+			}
+		}
+
+		body {
+			line-height: 1.5;
+			white-space: pre-wrap;
+		}
+
+		a,
+		a.visited {
+			color: inherit;
+			text-decoration: underline;
+		}
+
+		.pdf-relative-link-path {
+			font-size: 80%;
+			color: #444;
+		}
+
+		h1,
+		h2,
+		h3 {
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+			margin-top: 1.875rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+
+		.source {
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 1.5em;
+			word-break: break-all;
+		}
+
+		.callout {
+			border-radius: 3px;
+			padding: 1rem;
+		}
+
+		figure {
+			margin: 1.25em 0;
+			page-break-inside: avoid;
+		}
+
+		figcaption {
+			opacity: 0.5;
+			font-size: 85%;
+			margin-top: 0.5em;
+		}
+
+		mark {
+			background-color: transparent;
+		}
+
+		.indented {
+			padding-left: 1.5em;
+		}
+
+		hr {
+			background: transparent;
+			display: block;
+			width: 100%;
+			height: 1px;
+			visibility: visible;
+			border: none;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		@media only print {
+			img {
+				max-height: 100vh;
+				object-fit: contain;
+			}
+		}
+
+		@page {
+			margin: 1in;
+		}
+
+		.collection-content {
+			font-size: 0.875rem;
+		}
+
+		.column-list {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.column {
+			padding: 0 1em;
+		}
+
+		.column:first-child {
+			padding-left: 0;
+		}
+
+		.column:last-child {
+			padding-right: 0;
+		}
+
+		.table_of_contents-item {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			padding: 0.125rem;
+		}
+
+		.table_of_contents-indent-1 {
+			margin-left: 1.5rem;
+		}
+
+		.table_of_contents-indent-2 {
+			margin-left: 3rem;
+		}
+
+		.table_of_contents-indent-3 {
+			margin-left: 4.5rem;
+		}
+
+		.table_of_contents-link {
+			text-decoration: none;
+			opacity: 0.7;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid rgba(55, 53, 47, 0.09);
+			border-collapse: collapse;
+		}
+
+		table {
+			border-left: none;
+			border-right: none;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			padding: 0.25em 0.5em;
+			line-height: 1.5;
+			min-height: 1.5em;
+			text-align: left;
+		}
+
+		th {
+			color: rgba(55, 53, 47, 0.6);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+			margin-block-start: 0.6em;
+			margin-block-end: 0.6em;
+		}
+
+		li>ol:first-child,
+		li>ul:first-child {
+			margin-block-start: 0.6em;
+		}
+
+		ul>li {
+			list-style: disc;
+		}
+
+		ul.to-do-list {
+			text-indent: -1.7em;
+		}
+
+		ul.to-do-list>li {
+			list-style: none;
+		}
+
+		.to-do-children-checked {
+			text-decoration: line-through;
+			opacity: 0.375;
+		}
+
+		ul.toggle>li {
+			list-style: none;
+		}
+
+		ul {
+			padding-inline-start: 1.7em;
+		}
+
+		ul>li {
+			padding-left: 0.1em;
+		}
+
+		ol {
+			padding-inline-start: 1.6em;
+		}
+
+		ol>li {
+			padding-left: 0.2em;
+		}
+
+		.mono ol {
+			padding-inline-start: 2em;
+		}
+
+		.mono ol>li {
+			text-indent: -0.4em;
+		}
+
+		.toggle {
+			padding-inline-start: 0em;
+			list-style-type: none;
+		}
+
+		/* Indent toggle children */
+		.toggle>li>details {
+			padding-left: 1.7em;
+		}
+
+		.toggle>li>details>summary {
+			margin-left: -1.1em;
+		}
+
+		.selected-value {
+			display: inline-block;
+			padding: 0 0.5em;
+			background: rgba(206, 205, 202, 0.5);
+			border-radius: 3px;
+			margin-right: 0.5em;
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			white-space: nowrap;
+		}
+
+		.collection-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.simple-table {
+			margin-top: 1em;
+			font-size: 0.875rem;
+			empty-cells: show;
+		}
+
+		.simple-table td {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table th {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table-header-color {
+			background: rgb(247, 246, 243);
+			color: black;
+		}
+
+		.simple-table-header {
+			font-weight: 500;
+		}
+
+		time {
+			opacity: 0.5;
+		}
+
+		.icon {
+			display: inline-block;
+			max-width: 1.2em;
+			max-height: 1.2em;
+			text-decoration: none;
+			vertical-align: text-bottom;
+			margin-right: 0.5em;
+		}
+
+		img.icon {
+			border-radius: 3px;
+		}
+
+		.user-icon {
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 100%;
+			margin-right: 0.5rem;
+		}
+
+		.user-icon-inner {
+			font-size: 0.8em;
+		}
+
+		.text-icon {
+			border: 1px solid #000;
+			text-align: center;
+		}
+
+		.page-cover-image {
+			display: block;
+			object-fit: cover;
+			width: 100%;
+			max-height: 30vh;
+		}
+
+		.page-header-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.page-header-icon-with-cover {
+			margin-top: -0.72em;
+			margin-left: 0.07em;
+		}
+
+		.page-header-icon img {
+			border-radius: 3px;
+		}
+
+		.link-to-page {
+			margin: 1em 0;
+			padding: 0;
+			border: none;
+			font-weight: 500;
+		}
+
+		p>.user {
+			opacity: 0.5;
+		}
+
+		td>.user,
+		td>time {
+			white-space: nowrap;
+		}
+
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			margin-right: 0.6em;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.image {
+			border: none;
+			margin: 1.5em 0;
+			padding: 0;
+			border-radius: 0;
+			text-align: center;
+		}
+
+		.code,
+		code {
+			background: rgba(135, 131, 120, 0.15);
+			border-radius: 3px;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-size: 85%;
+			tab-size: 2;
+		}
+
+		code {
+			color: #eb5757;
+		}
+
+		.code {
+			padding: 1.5em 1em;
+		}
+
+		.code-wrap {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		.code>code {
+			background: none;
+			padding: 0;
+			font-size: 100%;
+			color: inherit;
+		}
+
+		blockquote {
+			font-size: 1.25em;
+			margin: 1em 0;
+			padding-left: 1em;
+			border-left: 3px solid rgb(55, 53, 47);
+		}
+
+		.bookmark {
+			text-decoration: none;
+			max-height: 8em;
+			padding: 0;
+			display: flex;
+			width: 100%;
+			align-items: stretch;
+		}
+
+		.bookmark-title {
+			font-size: 0.85em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 1.75em;
+			white-space: nowrap;
+		}
+
+		.bookmark-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bookmark-info {
+			flex: 4 1 180px;
+			padding: 12px 14px 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.bookmark-image {
+			width: 33%;
+			flex: 1 1 180px;
+			display: block;
+			position: relative;
+			object-fit: cover;
+			border-radius: 1px;
+		}
+
+		.bookmark-description {
+			color: rgba(55, 53, 47, 0.6);
+			font-size: 0.75em;
+			overflow: hidden;
+			max-height: 4.5em;
+			word-break: break-word;
+		}
+
+		.bookmark-href {
+			font-size: 0.75em;
+			margin-top: 0.25em;
+		}
+
+		.sans {
+			font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		.code {
+			font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+		}
+
+		.serif {
+			font-family: Lyon-Text, Georgia, ui-serif, serif;
+		}
+
+		.mono {
+			font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+		}
+
+		.pdf .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+		}
+
+		.pdf .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.pdf .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+		}
+
+		.pdf .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.highlight-default {
+			color: rgba(55, 53, 47, 1);
+		}
+
+		.highlight-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(120, 119, 116, 1);
+		}
+
+		.highlight-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.highlight-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.highlight-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.highlight-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.highlight-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.highlight-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.highlight-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.highlight-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(212, 76, 71, 1);
+		}
+
+		.highlight-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+
+		.highlight-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.highlight-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.highlight-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.highlight-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.highlight-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.highlight-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+
+		.highlight-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+
+		.highlight-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.block-color-default {
+			color: inherit;
+			fill: inherit;
+		}
+
+		.block-color-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(120, 119, 116, 1);
+		}
+
+		.block-color-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.block-color-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.block-color-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.block-color-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.block-color-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.block-color-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.block-color-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.block-color-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(212, 76, 71, 1);
+		}
+
+		.block-color-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+
+		.block-color-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.block-color-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.block-color-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.block-color-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.block-color-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.block-color-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+
+		.block-color-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+
+		.block-color-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.select-value-color-pink {
+			background-color: rgba(245, 224, 233, 1);
+		}
+
+		.select-value-color-purple {
+			background-color: rgba(232, 222, 238, 1);
+		}
+
+		.select-value-color-green {
+			background-color: rgba(219, 237, 219, 1);
+		}
+
+		.select-value-color-gray {
+			background-color: rgba(227, 226, 224, 1);
+		}
+
+		.select-value-color-opaquegray {
+			background-color: rgba(255, 255, 255, 0.0375);
+		}
+
+		.select-value-color-orange {
+			background-color: rgba(250, 222, 201, 1);
+		}
+
+		.select-value-color-brown {
+			background-color: rgba(238, 224, 218, 1);
+		}
+
+		.select-value-color-red {
+			background-color: rgba(255, 226, 221, 1);
+		}
+
+		.select-value-color-yellow {
+			background-color: rgba(253, 236, 200, 1);
+		}
+
+		.select-value-color-blue {
+			background-color: rgba(211, 229, 239, 1);
+		}
+
+		.checkbox {
+			display: inline-flex;
+			vertical-align: text-bottom;
+			width: 16;
+			height: 16;
+			background-size: 16px;
+			margin-left: 2px;
+			margin-right: 5px;
+		}
+
+		.checkbox-on {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+
+		.checkbox-off {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+	</style>
+</head>
+
+<body>
+	<article id="996d4b32-2c6a-4c66-a7cc-8936292e25c1" class="page sans">
+		<header>
+			<h1 class="page-title">FAQ</h1>
+		</header>
+		<div class="page-body">
+			<p id="5f74cf91-01d7-468a-a7e2-f9e7e9560ec3" class="">
+			</p>
+			<ul id="0c0f1f83-b18f-408f-870f-ee2a89dd7691" class="toggle">
+				<li>
+					<details open="">
+						<summary>PERÍODO E CALENDÁRIO</summary>
+						<ul id="2f161587-dd3f-40cc-ba29-2b27f52f094a" class="toggle">
+							<li>
+								<details open="">
+									<summary>Quando começa o período? Quando acaba? Quando são as provas finais? Até
+										quando saem as notas das provas finais? Até quando faço plano de estudos?
+									</summary>
+									<ul id="0f395975-79c3-4431-abe3-5779f15012df" class="bulleted-list">
+										<li style="list-style-type:disc">R.: Veja no <a
+												href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a>
+											do ano desejado, na página da <a href="https://www.res.ufv.br/">Diretoria de
+												Registro Escolar da UFV</a>.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="c6b2c6e2-588b-43f2-8c03-4c322d745bac" class="toggle">
+							<li>
+								<details open="">
+									<summary>Quais matérias vai ter e quem vai dar? Como isso funciona?</summary>
+									<ul id="2124618a-45a6-4465-a927-72cdd6f34fe2" class="bulleted-list">
+										<li style="list-style-type:disc">R.: Em uma reunião do Colegiado de cada
+											Departamento da UFV, antes do período começar, acontece a divisão dos
+											encargos de ensino que os professores vão ministrar no período subsequente.
+											Por isso, é importante a participação de um membro representante discente
+											nas instâncias da UFV. Após atualizado o oferecimento de disciplinas para o
+											próximo período, visualize na seção de <a
+												href="https://www.dti.ufv.br/horario/hor.asp">Horários de Aulas</a>, na
+											página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da
+												UFV</a>.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="8d0f13cd-f6b1-4d21-a036-4f6af93ab656" class="toggle">
+							<li>
+								<details open="">
+									<summary>Onde encontro horários de matérias?</summary>
+									<ul id="46b9ba8e-bfb4-4e11-a1c3-531b96c5fb73" class="bulleted-list">
+										<li style="list-style-type:disc">R.: Na seção de <a
+												href="https://www.dti.ufv.br/horario/hor.asp">Horários de Aulas</a>, na
+											página da <a href="https://www.res.ufv.br/">Diretoria de Registro Escolar da
+												UFV</a>.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="7e27986f-91af-4a38-b181-a9f81a9069b2" class="toggle">
+							<li>
+								<details open="">
+									<summary>Onde encontro datas de feriados?</summary>
+									<ul id="2c763fef-4bd4-4e8e-9c69-50cad0d7cbcb" class="bulleted-list">
+										<li style="list-style-type:disc">R.: No <a
+												href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a>
+											do ano desejado, na página da <a href="https://www.res.ufv.br/">Diretoria de
+												Registro Escolar da UFV</a>.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="c9b98724-5df4-4f1f-a767-74c9cb028afa" class="toggle">
+							<li>
+								<details open="">
+									<summary>Quando posso remover disciplinas do meu período? Como?</summary>
+									<ul id="27994028-1393-4b9f-ba53-7310cdcda3bd" class="bulleted-list">
+										<li style="list-style-type:disc">R.: Verifique a data no <a
+												href="https://www.res.ufv.br/?page_id=273">Calendário da Graduação</a>
+											do ano desejado, na página da <a href="https://www.res.ufv.br/">Diretoria de
+												Registro Escolar da UFV</a>. Durante o período específico, </li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="19e80190-44d6-4511-bec2-79e92f61c42a" class="toggle">
+							<li>
+								<details open="">
+									<summary>Posso atualizar meu plano de estudos?</summary>
+									<ul id="303fcdc6-d069-4d4f-a6a4-4384809e6e57" class="bulleted-list">
+										<li style="list-style-type:disc">Estudantes com aprovação em <em>todas</em> as
+											disciplinas até o <a
+												href="http://www.catalogo.ufv.br/interno.php?ano=2022&amp;curso=EEL&amp;campus=vicosa&amp;complemento=*&amp;periodo=3">3º
+												Período da atual grade de Engenharia Elétrica</a> podem atualizar seus
+											próprios planos de estudos. Caso contrário, devem entrar em contato com os
+											<a href="https://del.ufv.br/plano-de-estudos/">professores orientadores
+												respectivos (referentes a seu ano de ingresso no curso)</a> para
+											selecionar as disciplinas desejadas para o(s) próximo(s) período(s) e
+											receber orientação. </li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="85285aa8-814a-4f0b-a504-8f66aab4db20" class="toggle">
+							<li>
+								<details open="">
+									<summary>Como atualizar meu plano de estudos?</summary>
+									<ul id="42d8c3c3-0368-4127-ac5b-7ae2ae16f067" class="bulleted-list">
+										<li style="list-style-type:disc">R.: Entre alguma data no final do periodo até
+											após o final da semana de provas finais, aproximadamente, pode-se editar o
+											plano de estudos (consultar no <a
+												href="https://www.res.ufv.br/?page_id=273">CALENDÁRIO</a>) tendo
+											cumprindo requisito de disciplinas. Para isso, acesse o <a
+												href="https://sapiens.dti.ufv.br/sapiens_redireciona/index.asp">SAPIENS</a>,
+											vá na aba de Plano de Estudos, insira, mova ou remova disciplinas na grade
+											curricular utilizando os códigos das disciplinas desejadas referente ao
+											catálogo em que se está inscrito. Ao final, clique em “Criticar Plano de
+											Estudos” e não se esqueça de salvar logo em seguida. Para verificar as
+											alterações, retorne à página de Plano de Estudos e reveja se as alterações
+											desejadas foram salvas.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="2c993982-10c3-4d6c-bd4e-8934204c2a31" class="toggle">
+							<li>
+								<details open="">
+									<summary>Quando atualizar meu catálogo?</summary>
+									<ul id="514e05a5-678f-499a-ba2d-46b02e915206" class="bulleted-list">
+										<li style="list-style-type:disc">R.: SEMPRE. O ideal é manter no catálogo mais
+											recente para facilitar tanto sua formação e formatura quanto a proposição e
+											oferecimento de disciplinas por parte do departamento.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="d4482122-6c35-4fad-b605-b7af125d12dc" class="toggle">
+							<li>
+								<details open="">
+									<summary>Como colocar uma facultativa?</summary>
+									<ul id="1c1ec8ec-c4c4-4803-b534-08607487386a" class="bulleted-list">
+										<li style="list-style-type:disc">R.: No <a
+												href="https://sapiens.dti.ufv.br/sapiens_redireciona/index.asp">SAPIENS</a>,
+											vá na aba de Plano de Estudos. No final da página, em vermelho, existe uma
+											seção específica “Disciplinas Facultativas” onde podem ser inseridas
+											disciplinas que não estão listadas como <a
+												href="http://www.catalogo.ufv.br/interno.php?ano=2022&amp;curso=EEL&amp;campus=vicosa&amp;complemento=*&amp;periodo=0">OPT
+												no CATÁLOGO da Engenharia Elétrica</a>.</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+						<ul id="7aecbde2-2efb-4d4e-ad47-745b27801088" class="bulleted-list">
+							<li style="list-style-type:disc">Não se esqueça de se matricular!</li>
+						</ul>
+						<ul id="3801577f-eb7e-417e-88c6-36b53656c749" class="toggle">
+							<li>
+								<details open="">
+									<summary>Período para poder entrar com processo especial de:</summary>
+									<ul id="08344985-e73b-49eb-a012-6c38e8f5bb50" class="bulleted-list">
+										<li style="list-style-type:disc">Mobilidade acadêmica? Cancelamento de
+											disciplina? Exame de suficiência? Solicitação de colação de grau?<ul
+												id="8e625f94-50b6-465f-9a35-b951db511752" class="bulleted-list">
+												<li style="list-style-type:circle">R.: Veja no <a
+														href="https://www.res.ufv.br/?page_id=273">Calendário da
+														Graduação</a> do ano desejado, na página da <a
+														href="https://www.res.ufv.br/">Diretoria de Registro Escolar da
+														UFV</a>.</li>
+											</ul>
+										</li>
+									</ul>
+								</details>
+							</li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+			<ul id="d405475c-ee65-48f5-92af-fb7795ba8dbb" class="toggle">
+				<li>
+					<details open="">
+						<summary>PROCESSOS</summary>
+						<ul id="062d8662-250f-4607-a0db-a086891d2dd6" class="bulleted-list">
+							<li style="list-style-type:disc">Coisas de desistência, tirar matérias, <ul
+									id="250a201b-0b29-4f5f-9dc3-a319d91f97c2" class="bulleted-list">
+									<li style="list-style-type:circle">R.: </li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="9e038247-1c60-48bb-b385-160762e12eff" class="bulleted-list">
+							<li style="list-style-type:disc">Como / posso pedir mudança de data de prova com professor?
+							</li>
+						</ul>
+						<ul id="64c82f0c-0768-4cb1-a8dd-188d562ac8c0" class="bulleted-list">
+							<li style="list-style-type:disc">Como funcionam processos administrativos para professores?
+							</li>
+						</ul>
+						<ul id="7135232d-2521-4348-855a-9dd1fc035a2c" class="bulleted-list">
+							<li style="list-style-type:disc">Onde / como encontrar processos no registro? Quais são os
+								processos mais procurados (explicar como eles funcionam)?</li>
+						</ul>
+						<ul id="5a62a094-fb61-42fe-8bf3-6b00512c8379" class="bulleted-list">
+							<li style="list-style-type:disc">Como quebrar co-requisito (é pelo sapiens agora)?
+								Solicitação de alteração de pre- e co-requisito?</li>
+						</ul>
+						<ul id="579b45f5-0e72-4264-8aa8-6e88ea100e28" class="bulleted-list">
+							<li style="list-style-type:disc">Como solicitar documentos?</li>
+						</ul>
+						<ul id="6074ed23-aaba-4e89-a373-fead9f56832b" class="bulleted-list">
+							<li style="list-style-type:disc">Como remover uma disciplina?</li>
+						</ul>
+						<ul id="923148f4-8f6d-4d47-9e69-49bf5d1ab1e4" class="bulleted-list">
+							<li style="list-style-type:disc">Como fazer / criticar plano de estudos?</li>
+						</ul>
+						<ul id="ad0d9bcd-e957-4527-bd2f-daac0c32be92" class="bulleted-list">
+							<li style="list-style-type:disc">Como simular o horário do Sapiens?</li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+			<ul id="738ff1da-248f-4e15-8354-84a8f6196289" class="toggle">
+				<li>
+					<details open="">
+						<summary>FORMAR</summary>
+						<ul id="4eb94ab8-a3be-4b5d-bc94-9c06146eed65" class="bulleted-list">
+							<li style="list-style-type:disc">O que, de fato, preciso para me formar? Como formar?<ul
+									id="4a8a7787-1463-4848-97db-fbf57f67a1b0" class="bulleted-list">
+									<li style="list-style-type:circle">R.: O estudante está apto a colar grau quando
+										cumprir todos os requisitos estabelecidos no Projeto Pedagógico do Curso (PPC).
+										O PPC pode ser encontrado no site do DEL (<a
+											href="https://del.ufv.br/">https://del.ufv.br/</a>). Em suma, o estudante
+										deve cursar todas as disciplinas obrigatórias e a carga horária de optativas.
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="b9404c66-566d-4de5-a7a3-c1bfffca6857" class="bulleted-list">
+							<li style="list-style-type:disc">Horas de obrigatórias, como funciona?</li>
+						</ul>
+						<ul id="ac0a7eb3-ed31-4fff-bf85-05d755995c83" class="bulleted-list">
+							<li style="list-style-type:disc">Corte de optativas, como funciona, como cortar, o que
+								precisa?<ul id="e82de1b0-3e52-4c78-945d-c1b997ca6832" class="bulleted-list">
+									<li style="list-style-type:circle">Quantidade de optativas “do DEL”, como elas
+										funcionam (onde está no regimento, o que está escrito)</li>
+								</ul>
+								<ul id="99c390fd-b403-4621-88fa-047ad1ef3142" class="bulleted-list">
+									<li style="list-style-type:circle">Atividades Complementares</li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="b7953513-883d-4692-a5e2-e37940021d14" class="bulleted-list">
+							<li style="list-style-type:disc">Como funciona, o que precisa ou não registrar, o que conta
+								como estágio, quando melhor fazer o estágio, diferenças entre estágio interno, externo,
+								obrigatório e não, como e quando puxar a disciplina de estágio?</li>
+						</ul>
+						<ul id="f5e70a6c-c47f-42df-88e3-6021896544ba" class="bulleted-list">
+							<li style="list-style-type:disc">Como funciona a curricularização da extensão? Quanto
+								preciso fazer? O que conta? Como encontrar oportunidades?</li>
+						</ul>
+						<ul id="ab1c35b1-a90c-4312-a9c0-11503e1f70c2" class="bulleted-list">
+							<li style="list-style-type:disc">Como funciona o botão de possível formando?</li>
+						</ul>
+						<ul id="9ecc1145-54cc-4406-801e-b82a20dacad7" class="bulleted-list">
+							<li style="list-style-type:disc">O que preciso para colar grau? Quando colar grau?</li>
+						</ul>
+						<ul id="71343668-158b-41c9-8c00-e8be8e7d9eda" class="bulleted-list">
+							<li style="list-style-type:disc">Como funciona a organização / comissão de formatura? Quando
+								começa/acontece?</li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+			<ul id="a20703d1-8419-4245-8be9-b3e51b7567f4" class="toggle">
+				<li>
+					<details open="">
+						<summary>CAELT</summary>
+						<ul id="fde38d3a-f3a6-4caa-8b49-e7be8d55742f" class="bulleted-list">
+							<li style="list-style-type:disc">construir IT do drive (deixar documentado os documentos do
+								drive)<ul id="12250d6f-e982-4c28-a52a-a1443be0bd68" class="bulleted-list">
+									<li style="list-style-type:circle">guia do drive, senhas, estatuto, eltflix,
+										formulários, informações, saeelt</li>
+								</ul>
+								<ul id="f68176a2-a867-465b-a67d-39ff436db800" class="bulleted-list">
+									<li style="list-style-type:circle">contato com outros cas, das, etc (fis, mat)</li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="3bf8721f-f6e1-426d-95c3-12f63c57b7d9" class="bulleted-list">
+							<li style="list-style-type:disc">explicar como funciona caelt<ul
+									id="53fbab03-30b5-45f3-94d6-b912b1294808" class="bulleted-list">
+									<li style="list-style-type:circle">dicas para conversar com professores</li>
+								</ul>
+								<ul id="bcb55475-606d-44ae-9ecf-745d0e18c9ac" class="bulleted-list">
+									<li style="list-style-type:circle">melhores práticas,</li>
+								</ul>
+								<ul id="fe6b6615-ffd3-4072-b1d1-dff3853f2f80" class="bulleted-list">
+									<li style="list-style-type:circle">como funcionam departamentos, dicas de contatos
+									</li>
+								</ul>
+								<ul id="82ae6828-7980-4bd6-80c8-874415184d5e" class="bulleted-list">
+									<li style="list-style-type:circle">Como correr atrás de outros departamentos</li>
+								</ul>
+								<ul id="f9f1308d-536b-4535-bd6f-26ec76337010" class="bulleted-list">
+									<li style="list-style-type:circle">como resolver problemas de disciplinas</li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="c1d111cc-5571-4d88-baaf-5795c3b03999" class="bulleted-list">
+							<li style="list-style-type:disc">Know-how administrativo<ul
+									id="f9e9a52e-74b6-41cc-8aca-67a4cc3c05d1" class="bulleted-list">
+									<li style="list-style-type:circle">Como fazer e quantidade de reuniões?</li>
+								</ul>
+								<ul id="40373aad-b0ed-43c4-a6c5-e2fb25042143" class="bulleted-list">
+									<li style="list-style-type:circle">Quando é melhor pra marcar? (tentar manter para 1
+										obrigatória por mês + 1 extraordinária máxima)</li>
+								</ul>
+								<ul id="e10de0ce-24af-4121-acf4-6e51ef1bfe98" class="bulleted-list">
+									<li style="list-style-type:circle">Definir projetos no início da gestão e manter
+										acompanhamento</li>
+								</ul>
+								<ul id="a6bd9bbe-8487-4767-b33a-1ff3ea3c9011" class="bulleted-list">
+									<li style="list-style-type:circle">Fazer pelo menos 2 assembleias gerais</li>
+								</ul>
+								<ul id="06521af2-61e4-4de3-8ab5-008e9dacc86e" class="bulleted-list">
+									<li style="list-style-type:circle">Recomendação: questionário de feedback/ouvidoria
+										uma vez por período</li>
+								</ul>
+							</li>
+						</ul>
+						<ul id="d1a5a378-f7b0-4acd-8cb8-54eea91146ee" class="bulleted-list">
+							<li style="list-style-type:disc">Abstrair workflow e metodologias da Comunicação<ul
+									id="34a9634e-a853-49ed-9ca1-9433c8f33b79" class="bulleted-list">
+									<li style="list-style-type:circle">Definiu padrão / template dos posts e ID visual
+										da gestão</li>
+								</ul>
+								<ul id="9e8494fc-6073-4597-8943-9a66884edb68" class="bulleted-list">
+									<li style="list-style-type:circle">Sempre mostrar no grupo antes de postar, para
+										feedback</li>
+								</ul>
+								<ul id="80150347-aeb9-4cb2-b586-8ab1fd160c93" class="bulleted-list">
+									<li style="list-style-type:circle">Não é necessário reunir depois de definir os
+										padrões</li>
+								</ul>
+							</li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+		</div>
+	</article>
+</body>
+
+</html>
